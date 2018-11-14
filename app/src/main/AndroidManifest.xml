@@ -9,9 +9,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <activity android:name=".Activity1"
+            android:label="Activity 1">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".Activity2"
+            android:allowTaskReparenting="true"
+            android:taskAffinity="ru.spbstu.icc.kspt.andrei.mydemoapplication.ta2"
+        />
+
+        <activity android:name=".Activity3"/>
+
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
+            android:label="Main Activity"
             android:theme="@style/AppTheme.NoActionBar">
 
             <intent-filter>
@@ -20,7 +36,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MyNewActivity">
+        <activity android:name=".MyNewActivity"
+            android:label="My new activity"
+            android:taskAffinity="ru.spbstu.icc.kspt.andrei.mydemoapplication.ta2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

@@ -4,4 +4,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="start">Start</string>
     <string name="title_click_count">Clicked count: %d</string>
+    <string name="create_a2">Create A2</string>
+    <string name="create_a3">Create A3</string>
+    <string name="back_to_1">Back to 1</string>
+    <string name="back_to_2">Back to 2</string>
 </resources>
