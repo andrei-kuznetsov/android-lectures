@@ -1,0 +1,14 @@
+<changelist name="fragments_and_activities" date="1541628219007" recycled="false">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/fragments_and_activities/shelved.patch" />
+  <option name="DESCRIPTION" value="fragments and activities" />
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="app/src/main/res/drawable/ic_launcher.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/fragments_and_activities/ic_launcher.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="app/src/main/res/drawable/ic_launcher_round.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/fragments_and_activities/ic_launcher_round.png" />
+  </binary>
+</changelist>

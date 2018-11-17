@@ -1,0 +1,676 @@
+Index: app/src/main/java/ru/spbstu/icc/kspt/andrei/mydemoapplication/Activity1.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/ru/spbstu/icc/kspt/andrei/mydemoapplication/Activity1.java	(date 1541628229855)
++++ app/src/main/java/ru/spbstu/icc/kspt/andrei/mydemoapplication/Activity1.java	(date 1541628229855)
+@@ -0,0 +1,27 @@
++package ru.spbstu.icc.kspt.andrei.mydemoapplication;
++
++import android.app.Activity;
++import android.content.Intent;
++import android.os.Bundle;
++import android.support.annotation.Nullable;
++import android.view.View;
++
++public class Activity1 extends Activity {
++    @Override
++    protected void onCreate(@Nullable Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.l1);
++        findViewById(R.id.start_act_2).setOnClickListener(this::startActivity2);
++        findViewById(R.id.start_act_3).setOnClickListener(this::startActivity3);
++    }
++
++    private void startActivity2(View view) {
++        Intent i = new Intent(this, Activity2.class);
++        startActivity(i);
++    }
++
++    private void startActivity3(View view) {
++        Intent i = new Intent(this, Activity3.class);
++        startActivity(i);
++    }
++}
+Index: app/src/main/java/ru/spbstu/icc/kspt/andrei/mydemoapplication/Activity2.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/ru/spbstu/icc/kspt/andrei/mydemoapplication/Activity2.java	(date 1541628229914)
++++ app/src/main/java/ru/spbstu/icc/kspt/andrei/mydemoapplication/Activity2.java	(date 1541628229914)
+@@ -0,0 +1,40 @@
++package ru.spbstu.icc.kspt.andrei.mydemoapplication;
++
++import android.app.Activity;
++import android.content.Intent;
++import android.os.Bundle;
++import android.support.annotation.Nullable;
++import android.view.View;
++
++public class Activity2 extends Activity {
++    private static final int RQ_A3 = 3;
++
++    @Override
++    protected void onCreate(@Nullable Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.l2);
++        findViewById(R.id.start_act_3).setOnClickListener(this::startActivity3);
++        findViewById(R.id.back_to_1).setOnClickListener(this::backTo1);
++    }
++
++    private void backTo1(View view) {
++        finish();
++    }
++
++    private void startActivity3(View view) {
++        Intent i = new Intent(this, Activity3.class);
++        startActivityForResult(i, RQ_A3);
++    }
++
++    @Override
++    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
++        super.onActivityResult(requestCode, resultCode, data);
++        if (requestCode == RQ_A3){
++            if (resultCode == Activity3.RC_TO_1){
++                finish();
++            } else {
++                // stay here
++            }
++        }
++    }
++}
+Index: app/src/main/java/ru/spbstu/icc/kspt/andrei/mydemoapplication/Activity3.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/ru/spbstu/icc/kspt/andrei/mydemoapplication/Activity3.java	(date 1541628229960)
++++ app/src/main/java/ru/spbstu/icc/kspt/andrei/mydemoapplication/Activity3.java	(date 1541628229960)
+@@ -0,0 +1,30 @@
++package ru.spbstu.icc.kspt.andrei.mydemoapplication;
++
++import android.app.Activity;
++import android.content.Intent;
++import android.os.Bundle;
++import android.support.annotation.Nullable;
++import android.view.View;
++
++public class Activity3 extends Activity {
++    public static final int RC_TO_1 = RESULT_FIRST_USER + 1;
++    public static final int RC_TO_2 = RESULT_FIRST_USER + 2;
++
++    @Override
++    protected void onCreate(@Nullable Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.l3);
++        findViewById(R.id.back_to_1).setOnClickListener(this::backTo1);
++        findViewById(R.id.back_to_2).setOnClickListener(this::backTo2);
++    }
++
++    private void backTo2(View view) {
++        setResult(RC_TO_2);
++        finish();
++    }
++
++    private void backTo1(View view) {
++        setResult(RC_TO_1);
++        finish();
++    }
++}
+Index: app/src/main/java/ru/spbstu/icc/kspt/andrei/mydemoapplication/DetailsActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/ru/spbstu/icc/kspt/andrei/mydemoapplication/DetailsActivity.java	(date 1541628230031)
++++ app/src/main/java/ru/spbstu/icc/kspt/andrei/mydemoapplication/DetailsActivity.java	(date 1541628230031)
+@@ -0,0 +1,23 @@
++package ru.spbstu.icc.kspt.andrei.mydemoapplication;
++
++import android.app.Activity;
++import android.app.FragmentManager;
++import android.content.Intent;
++import android.os.Bundle;
++import android.support.annotation.Nullable;
++import android.widget.TextView;
++
++public class DetailsActivity extends Activity {
++    public static final String EXTRA_TEXT = "ru.spbstu.icc.kspt.andrei.mydemoapplication.extra.text";
++
++    @Override
++    protected void onCreate(@Nullable Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_details);
++
++        Intent i = getIntent();
++        String text = i.getCharSequenceExtra(EXTRA_TEXT).toString();
++        DetailsFragment details = (DetailsFragment) getFragmentManager().findFragmentById(R.id.details_fragment);
++        details.setText(text);
++    }
++}
+Index: app/src/main/java/ru/spbstu/icc/kspt/andrei/mydemoapplication/DetailsFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/ru/spbstu/icc/kspt/andrei/mydemoapplication/DetailsFragment.java	(date 1541628230080)
++++ app/src/main/java/ru/spbstu/icc/kspt/andrei/mydemoapplication/DetailsFragment.java	(date 1541628230080)
+@@ -0,0 +1,47 @@
++package ru.spbstu.icc.kspt.andrei.mydemoapplication;
++
++import android.app.Fragment;
++import android.os.Bundle;
++import android.support.annotation.NonNull;
++import android.support.annotation.Nullable;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++import android.widget.TextView;
++
++import static ru.spbstu.icc.kspt.andrei.mydemoapplication.DetailsActivity.EXTRA_TEXT;
++
++public class DetailsFragment extends Fragment {
++
++    public static final String FRAGMENT_PREFIX = "Fragment: ";
++
++    @NonNull
++    public static DetailsFragment getDetailsFragment(String text) {
++        DetailsFragment fragment = new DetailsFragment();
++        Bundle args = new Bundle();
++        args.putCharSequence(EXTRA_TEXT, text);
++        fragment.setArguments(args);
++        return fragment;
++    }
++
++    @Nullable
++    @Override
++    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
++        return inflater.inflate(R.layout.details, container, false);
++    }
++
++    @Override
++    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
++        super.onActivityCreated(savedInstanceState);
++        Bundle args = getArguments();
++        if (args != null){
++            CharSequence text = args.getCharSequence(DetailsActivity.EXTRA_TEXT);
++            setText(text.toString());
++        }
++    }
++
++    public void setText(String text){
++        TextView details = getActivity().findViewById(R.id.details);
++        details.setText(FRAGMENT_PREFIX + text);
++    }
++}
+Index: app/src/main/java/ru/spbstu/icc/kspt/andrei/mydemoapplication/ListActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/ru/spbstu/icc/kspt/andrei/mydemoapplication/ListActivity.java	(date 1541629353911)
++++ app/src/main/java/ru/spbstu/icc/kspt/andrei/mydemoapplication/ListActivity.java	(date 1541629353911)
+@@ -0,0 +1,75 @@
++package ru.spbstu.icc.kspt.andrei.mydemoapplication;
++
++import android.app.Activity;
++import android.app.Fragment;
++import android.app.FragmentManager;
++import android.app.FragmentTransaction;
++import android.os.Bundle;
++import android.support.annotation.Nullable;
++
++public class ListActivity extends Activity implements ListFragment.ItemListener {
++    public static final String DETAILS_TAG = "details_tag";
++    private static final String LIST_TAG = "list_tag";
++    public static final String INITIAL = "initial";
++    private boolean twoPanes = false;
++
++    @Override
++    protected void onCreate(@Nullable Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_list);
++
++        if (findViewById(R.id.twoPanels) != null) {
++            twoPanes = true;
++        }
++
++        FragmentManager fm = getFragmentManager();
++        fm.popBackStack(INITIAL, 0);
++
++        FragmentTransaction tx = fm.beginTransaction();
++
++        Fragment listFragment = fm.findFragmentByTag(LIST_TAG);
++        if (listFragment == null) {
++            listFragment = new ListFragment();
++            tx.replace(R.id.list_fragment, listFragment, LIST_TAG);
++        }
++
++        Fragment detailsFragment = fm.findFragmentByTag(DETAILS_TAG);
++        if (detailsFragment == null) {
++            detailsFragment = new DetailsFragment();
++            tx.replace(R.id.details_fragment, detailsFragment, DETAILS_TAG);
++        }
++
++        if (twoPanes) {
++            tx.show(listFragment);
++            tx.show(detailsFragment);
++        } else {
++            tx.show(listFragment);
++            tx.hide(detailsFragment);
++        }
++
++        tx.addToBackStack(INITIAL);
++        tx.commit();
++    }
++
++    @Override
++    public void onItemSelected(String text) {
++        if (twoPanes) {
++            DetailsFragment details = (DetailsFragment) getFragmentManager().findFragmentById(R.id.details_fragment);
++            details.setText(text);
++        } else {
++            FragmentManager fm = getFragmentManager();
++
++            DetailsFragment detailsFragment = (DetailsFragment) fm.findFragmentByTag(DETAILS_TAG);
++            detailsFragment.setText(text);
++
++            if (detailsFragment.isVisible() == false){
++                FragmentTransaction tx = fm.beginTransaction();
++                tx.show(detailsFragment);
++                tx.hide(fm.findFragmentByTag(LIST_TAG));
++                tx.addToBackStack(null);
++                tx.commit();
++            }
++        }
++    }
++
++}
+Index: app/src/main/java/ru/spbstu/icc/kspt/andrei/mydemoapplication/ListFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/ru/spbstu/icc/kspt/andrei/mydemoapplication/ListFragment.java	(date 1541628230166)
++++ app/src/main/java/ru/spbstu/icc/kspt/andrei/mydemoapplication/ListFragment.java	(date 1541628230166)
+@@ -0,0 +1,52 @@
++package ru.spbstu.icc.kspt.andrei.mydemoapplication;
++
++import android.app.Activity;
++import android.app.Fragment;
++import android.content.Context;
++import android.content.Intent;
++import android.os.Bundle;
++import android.support.annotation.Nullable;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++import android.widget.Button;
++
++public class ListFragment extends Fragment {
++    public interface ItemListener {
++        void onItemSelected(String text);
++    }
++
++    private ItemListener listener = null;
++
++    @Nullable
++    @Override
++    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
++        return inflater.inflate(R.layout.list, container, false);
++    }
++
++    @Override
++    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
++        super.onActivityCreated(savedInstanceState);
++        Activity activity = getActivity();
++        activity.findViewById(R.id.item1).setOnClickListener(this::itemClicked);
++        activity.findViewById(R.id.item2).setOnClickListener(this::itemClicked);
++        activity.findViewById(R.id.item3).setOnClickListener(this::itemClicked);
++    }
++
++    @Override
++    public void onAttach(Context context) {
++        super.onAttach(context);
++        listener = (ItemListener) context;
++    }
++
++    @Override
++    public void onDetach() {
++        super.onDetach();
++        listener = null;
++    }
++
++    private void itemClicked(View view) {
++        String text = ((Button) view).getText().toString();
++        listener.onItemSelected(text);
++    }
++}
+Index: app/src/main/res/layout/activity_details.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_details.xml	(date 1541628230200)
++++ app/src/main/res/layout/activity_details.xml	(date 1541628230200)
+@@ -0,0 +1,12 @@
++<?xml version="1.0" encoding="utf-8"?>
++<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent">
++
++    <fragment
++        android:id="@+id/details_fragment"
++        android:name="ru.spbstu.icc.kspt.andrei.mydemoapplication.DetailsFragment"
++        android:layout_width="match_parent"
++        android:layout_height="match_parent" />
++
++</FrameLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_list.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_list.xml	(date 1541628876510)
++++ app/src/main/res/layout/activity_list.xml	(date 1541628876510)
+@@ -0,0 +1,16 @@
++<?xml version="1.0" encoding="utf-8"?>
++<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent">
++
++    <FrameLayout
++        android:id="@+id/list_fragment"
++        android:layout_width="match_parent"
++        android:layout_height="match_parent" />
++
++    <FrameLayout
++        android:id="@+id/details_fragment"
++        android:layout_width="match_parent"
++        android:layout_height="match_parent" />
++
++</FrameLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/details.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/details.xml	(date 1541628230270)
++++ app/src/main/res/layout/details.xml	(date 1541628230270)
+@@ -0,0 +1,24 @@
++<?xml version="1.0" encoding="utf-8"?>
++<android.support.constraint.ConstraintLayout
++    xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent">
++
++    <TextView
++        android:id="@+id/details"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginBottom="8dp"
++        android:layout_marginEnd="8dp"
++        android:layout_marginLeft="8dp"
++        android:layout_marginRight="8dp"
++        android:layout_marginStart="8dp"
++        android:layout_marginTop="8dp"
++        android:text="TextView"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++</android.support.constraint.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/l1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/l1.xml	(date 1541628230310)
++++ app/src/main/res/layout/l1.xml	(date 1541628230310)
+@@ -0,0 +1,20 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:orientation="vertical">
++
++    <Button
++        android:id="@+id/start_act_2"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:text="@string/start_activity_2" />
++
++    <Button
++        android:id="@+id/start_act_3"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:text="@string/start_activity_3" />
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/l2.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/l2.xml	(date 1541628230336)
++++ app/src/main/res/layout/l2.xml	(date 1541628230336)
+@@ -0,0 +1,18 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:orientation="vertical">
++
++    <Button
++        android:id="@+id/back_to_1"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:text="@string/back_to_activity_1" />
++
++    <Button
++        android:id="@+id/start_act_3"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:text="@string/start_activity_3" />
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/l3.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/l3.xml	(date 1541628230374)
++++ app/src/main/res/layout/l3.xml	(date 1541628230374)
+@@ -0,0 +1,18 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:orientation="vertical">
++
++    <Button
++        android:id="@+id/back_to_1"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:text="@string/back_to_activity_1" />
++
++    <Button
++        android:id="@+id/back_to_2"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:text="@string/back_to_activity_2" />
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/list.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/list.xml	(date 1541628230473)
++++ app/src/main/res/layout/list.xml	(date 1541628230473)
+@@ -0,0 +1,24 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:orientation="vertical">
++
++    <Button
++        android:id="@+id/item1"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:text="@string/item1" />
++
++    <Button
++        android:id="@+id/item2"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:text="@string/item2" />
++
++    <Button
++        android:id="@+id/item3"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:text="@string/item3" />
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout-land/activity_list.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout-land/activity_list.xml	(date 1541628876624)
++++ app/src/main/res/layout-land/activity_list.xml	(date 1541628876624)
+@@ -0,0 +1,23 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent">
++
++    <FrameLayout
++        android:id="@+id/list_fragment"
++        android:layout_width="0dp"
++        android:layout_height="match_parent"
++        android:layout_weight="1" />
++
++    <FrameLayout
++        android:id="@+id/details_fragment"
++        android:layout_width="0dp"
++        android:layout_height="match_parent"
++        android:layout_weight="3" />
++
++    <ViewStub
++        android:id="@+id/twoPanels"
++        android:layout_width="0dp"
++        android:layout_height="0dp"
++        android:visibility="gone"/>
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\n    <string name=\"app_name\">My demo application</string>\n    <string name=\"action_settings\">Settings</string>\n    <string name=\"hello_world\">Hello world!</string>\n    <string name=\"start\">Start</string>\n    <string name=\"title_click_count\">Clicked count: %d</string>\n</resources>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/strings.xml	(date 1539201637000)
++++ app/src/main/res/values/strings.xml	(date 1541628230533)
+@@ -4,4 +4,12 @@
+     <string name="hello_world">Hello world!</string>
+     <string name="start">Start</string>
+     <string name="title_click_count">Clicked count: %d</string>
++    <string name="second_activity">Second activity</string>
++    <string name="start_activity_2">Start Activity 2</string>
++    <string name="start_activity_3">Start Activity 3</string>
++    <string name="back_to_activity_1">Back to Activity 1</string>
++    <string name="back_to_activity_2">Back to Activity 2</string>
++    <string name="item2">item2</string>
++    <string name="item1">item1</string>
++    <string name="item3">item3</string>
+ </resources>
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    package=\"ru.spbstu.icc.kspt.andrei.mydemoapplication\">\n\n    <application\n        android:allowBackup=\"true\"\n        android:icon=\"@mipmap/ic_launcher\"\n        android:label=\"@string/app_name\"\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\n        android:supportsRtl=\"true\"\n        android:theme=\"@style/AppTheme\">\n        <activity\n            android:name=\".MainActivity\"\n            android:label=\"@string/app_name\"\n            android:theme=\"@style/AppTheme.NoActionBar\">\n\n            <intent-filter>\n                <action android:name=\"android.intent.action.MAIN\" />\n                <category android:name=\"android.intent.category.LAUNCHER\" />\n            </intent-filter>\n        </activity>\n\n        <activity android:name=\".MyNewActivity\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.MAIN\" />\n                <category android:name=\"android.intent.category.LAUNCHER\" />\n            </intent-filter>\n        </activity>\n    </application>\n\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(date 1539201637000)
++++ app/src/main/AndroidManifest.xml	(date 1541628230562)
+@@ -9,8 +9,32 @@
+         android:roundIcon="@mipmap/ic_launcher_round"
+         android:supportsRtl="true"
+         android:theme="@style/AppTheme">
++
++        <activity android:name=".ListActivity"
++            android:label="Fragments">
++            <intent-filter>
++                <action android:name="android.intent.action.MAIN" />
++                <category android:name="android.intent.category.LAUNCHER" />
++            </intent-filter>
++        </activity>
++
++        <activity android:name=".DetailsActivity"/>
++
++        <activity android:name=".Activity1"
++            android:taskAffinity="ru.spbstu.icc.kspt.andrei.mydemoapplication.activities"
++            android:label="Activity1">
++            <intent-filter>
++                <action android:name="android.intent.action.MAIN" />
++                <category android:name="android.intent.category.LAUNCHER" />
++            </intent-filter>
++        </activity>
++
++        <activity android:name=".Activity2" />
++        <activity android:name=".Activity3" />
++
+         <activity
+             android:name=".MainActivity"
++            android:icon="@drawable/ic_launcher_round"
+             android:label="@string/app_name"
+             android:theme="@style/AppTheme.NoActionBar">
+ 
+@@ -20,12 +44,17 @@
+             </intent-filter>
+         </activity>
+ 
+-        <activity android:name=".MyNewActivity">
++        <activity
++            android:name=".MyNewActivity"
++            android:icon="@drawable/ic_launcher_square"
++            android:label="@string/second_activity"
++            android:taskAffinity="ru.spbstu.icc.kspt.andrei.mydemoapplication.second">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
+         </activity>
++
+     </application>
+ 
+ </manifest>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vcs.xml	(date 1541628230605)
++++ .idea/vcs.xml	(date 1541628230605)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
