@@ -10,7 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".Activity1"
+        <activity
+            android:name=".ArticleListActivity"
+            android:label="ListActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".DetailsActivity" />
+
+        <activity
+            android:name=".Activity1"
             android:label="Activity 1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,12 +30,12 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Activity2"
+        <activity
+            android:name=".Activity2"
             android:allowTaskReparenting="true"
-            android:taskAffinity="ru.spbstu.icc.kspt.andrei.mydemoapplication.ta2"
-        />
+            android:taskAffinity="ru.spbstu.icc.kspt.andrei.mydemoapplication.ta2" />
 
-        <activity android:name=".Activity3"/>
+        <activity android:name=".Activity3" />
 
         <activity
             android:name=".MainActivity"
@@ -36,7 +48,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MyNewActivity"
+        <activity
+            android:name=".MyNewActivity"
             android:label="My new activity"
             android:taskAffinity="ru.spbstu.icc.kspt.andrei.mydemoapplication.ta2">
             <intent-filter>

@@ -24,7 +24,4 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:text="Button" />
-    <fragment
-        android:layout_width=""
-        android:layout_height=""
 </LinearLayout>
