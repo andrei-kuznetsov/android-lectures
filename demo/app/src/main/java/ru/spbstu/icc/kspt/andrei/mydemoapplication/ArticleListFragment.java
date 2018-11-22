@@ -29,6 +29,14 @@ public class ArticleListFragment extends ListFragment {
         }
     }
 
+    ArticleListener getListener() {
+        return listener;
+    }
+
+    void setListener(ArticleListener listener) {
+        this.listener = listener;
+    }
+
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         if (listener != null) {
