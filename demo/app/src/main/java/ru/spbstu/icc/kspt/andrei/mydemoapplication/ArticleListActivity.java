@@ -20,7 +20,7 @@ public class ArticleListActivity extends Activity implements ArticleListFragment
                 (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE);
 
         FragmentManager mgr = getFragmentManager();
-        mgr.popBackStack(DETAILS_TX, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+//        mgr.popBackStack(DETAILS_TX, FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         FragmentTransaction tx = mgr.beginTransaction();
         if (twoPanes){
