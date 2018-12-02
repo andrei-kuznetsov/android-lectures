@@ -2,13 +2,12 @@ package ru.spbstu.icc.kspt.andrei.mydemoapplication;
 
 import android.os.RemoteException;
 
-import org.hamcrest.Matcher;
+import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import androidx.test.espresso.Espresso;
-import androidx.test.espresso.ViewAssertion;
 import androidx.test.espresso.action.ViewActions;
 import androidx.test.espresso.assertion.ViewAssertions;
 import androidx.test.espresso.matcher.ViewMatchers;
@@ -32,7 +31,7 @@ public class ExampleInstrumentedTest {
             = new ActivityTestRule<>(ArticleListActivity.class);
 
     @Test
-    public void itemSelectedPort() throws InterruptedException, RemoteException {
+    public void itemSelectedPort() throws RemoteException {
         UiDevice.getInstance(InstrumentationRegistry.getInstrumentation()).setOrientationNatural();
         Espresso.onData(is("Item1"))
                 .perform(ViewActions.click());
@@ -42,12 +41,32 @@ public class ExampleInstrumentedTest {
     }
 
     @Test
-    public void itemSelectedLand() throws InterruptedException, RemoteException {
+    public void itemSelectedLand() throws RemoteException {
         UiDevice.getInstance(InstrumentationRegistry.getInstrumentation()).setOrientationLeft();
         Espresso.onData(is("Item1"))
                 .perform(ViewActions.click());
 
         Espresso.onView(ViewMatchers.withId(R.id.details_text))
                 .check(ViewAssertions.matches(ViewMatchers.withText("Item1")));
+    }
+
+    @Test
+    public void rotationTest() throws RemoteException {
+        UiDevice.getInstance(InstrumentationRegistry.getInstrumentation()).setOrientationNatural();
+
+        Espresso.onData(is("Item1"))
+                .perform(ViewActions.click());
+
+        UiDevice.getInstance(InstrumentationRegistry.getInstrumentation()).setOrientationLeft();
+
+        Espresso.onView(ViewMatchers.withId(R.id.details_text))
+                .check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
+
+        Espresso.onView(ViewMatchers.withId(android.R.id.list))
+                .check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
+
+        Espresso.pressBackUnconditionally();
+
+        Assert.assertTrue(mActivityRule.getActivity().isFinishing());
     }
 }

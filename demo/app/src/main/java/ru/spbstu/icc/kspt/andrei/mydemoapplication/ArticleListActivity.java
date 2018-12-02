@@ -9,6 +9,9 @@ import android.support.annotation.Nullable;
 
 public class ArticleListActivity extends Activity implements ArticleListFragment.ArticleListener {
     public static final String DETAILS_TX = "initial";
+    public static final String LIST_FRAGMENT = "listFragment";
+    public static final String DETAILS_FRAGMENT = "detailsFragment";
+    public static final String NONE = "None";
     private boolean twoPanes = false;
 
     @Override
@@ -20,30 +23,31 @@ public class ArticleListActivity extends Activity implements ArticleListFragment
                 (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE);
 
         FragmentManager mgr = getFragmentManager();
-//        mgr.popBackStack(DETAILS_TX, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        mgr.popBackStack(DETAILS_TX, FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         FragmentTransaction tx = mgr.beginTransaction();
-        if (twoPanes){
-            tx.show(mgr.findFragmentById(R.id.list_fragment));
-            tx.show(mgr.findFragmentById(R.id.details_fragment));
-        } else {
-            tx.show(mgr.findFragmentById(R.id.list_fragment));
-            tx.hide(mgr.findFragmentById(R.id.details_fragment));
+
+        if (mgr.findFragmentByTag(LIST_FRAGMENT) == null) {
+            tx.add(R.id.fragment_holder, new ArticleListFragment(), LIST_FRAGMENT);
         }
+
+        if (twoPanes) {
+            tx.replace(R.id.fragment_holder_right, DetailsFragment.newInstance(NONE), DETAILS_FRAGMENT);
+        }
+
         tx.commit();
     }
 
     @Override
     public void onArticle(String text) {
         FragmentManager mgr = getFragmentManager();
-        if (twoPanes){
-            DetailsFragment detailsFragment =
-                    (DetailsFragment) mgr.findFragmentById(R.id.details_fragment);
+
+        if (twoPanes) {
+            DetailsFragment detailsFragment = (DetailsFragment) mgr.findFragmentById(R.id.fragment_holder_right);
             detailsFragment.setText(text);
         } else {
             FragmentTransaction tx = mgr.beginTransaction();
-            tx.hide(mgr.findFragmentById(R.id.list_fragment));
-            tx.show(mgr.findFragmentById(R.id.details_fragment));
+            tx.replace(R.id.fragment_holder, DetailsFragment.newInstance(text), DETAILS_FRAGMENT);
             tx.addToBackStack(DETAILS_TX);
             tx.commit();
         }
