@@ -1,10 +1,16 @@
 package ru.spbstu.icc.kspt.andrei.mydemoapplication;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.provider.Telephony;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 public class ArticleListActivity extends Activity implements ArticleListFragment.ArticleListener {
@@ -12,6 +18,7 @@ public class ArticleListActivity extends Activity implements ArticleListFragment
     public static final String LIST_FRAGMENT = "listFragment";
     public static final String DETAILS_FRAGMENT = "detailsFragment";
     public static final String NONE = "None";
+    public static final int REQUEST_CODE = 1;
     private boolean twoPanes = false;
 
     @Override
@@ -36,6 +43,31 @@ public class ArticleListActivity extends Activity implements ArticleListFragment
         }
 
         tx.commit();
+
+        registerBroadcast();
+    }
+
+    private void registerBroadcast() {
+        if (checkSelfPermission(Manifest.permission.RECEIVE_SMS) == PackageManager.PERMISSION_GRANTED) {
+            IntentFilter filter = new IntentFilter();
+            filter.addAction(Intent.ACTION_POWER_CONNECTED);
+            filter.addAction(Intent.ACTION_POWER_DISCONNECTED);
+            filter.addAction(Telephony.Sms.Intents.SMS_RECEIVED_ACTION);
+            registerReceiver(new MyBroadcastReceiver(), filter);
+        } else {
+            requestPermissions(new String[]{Manifest.permission.RECEIVE_SMS}, REQUEST_CODE);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == REQUEST_CODE) {
+            for (int grantResult : grantResults) {
+                if (grantResult == PackageManager.PERMISSION_GRANTED) {
+                    registerBroadcast();
+                }
+            }
+        }
     }
 
     @Override

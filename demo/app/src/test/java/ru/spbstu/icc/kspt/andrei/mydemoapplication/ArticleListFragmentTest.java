@@ -6,8 +6,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import static org.junit.Assert.*;
-
 public class ArticleListFragmentTest {
 
     public static abstract class ExContext extends Context implements ArticleListFragment.ArticleListener {
@@ -40,5 +38,10 @@ public class ArticleListFragmentTest {
 
         // Assertion
         Assert.assertEquals(listener, fragment.getListener());
+    }
+
+    @Test
+    public void testWait() throws InterruptedException {
+        wait(1000);
     }
 }
