@@ -42,6 +42,10 @@ public class ArticleListFragmentTest {
 
     @Test
     public void testWait() throws InterruptedException {
-        wait(1000);
+        Object o = new Object();
+//        synchronized (o) {
+//            o.wait(1000);
+//        }
+        Thread.sleep(1000);
     }
 }
