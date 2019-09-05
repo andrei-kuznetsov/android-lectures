@@ -1,0 +1,4 @@
+varnt = rnd[1..22]
+img1  = varnt
+img2  = ((img1 + 8) % 22) + 1
+img3  = varnt
