@@ -28,6 +28,8 @@
 ### Задача 3. Навигация (Fragments, Navigation Graph) 
 Решите предыдущую задачу с использованием fragment и navigation graph. В отчете сравните два решения.
 
+#### Указания
+Ознакомьтесь с navigation graph по документации (https://developer.android.com/guide/navigation/navigation-getting-started) или видеоуроку (https://classroom.udacity.com/courses/ud9012 Lesson 3 “App Navigation”))
   
 ## Отчет  
 Отчет должен содержать формулировку целей, решения задач с ответами на дополнительные вопросы из раздела «указания», выводы. Выводы должны содержать убедительное обоснование, почему автор отчета считает, что все цели были достигнуты. Например, обоснование может включать краткую информацию о том, как достигалась каждая из поставленных целей.
@@ -38,6 +40,7 @@
 ### Основные
 * https://classroom.udacity.com/courses/ud9012 (Lesson 3 “App Navigation”)
 * https://developer.android.com/reference/android/app/Activity.html#StartingActivities
+* https://developer.android.com/topic/libraries/architecture/lifecycle
 
 ### Дополнительные (на русском языке)  
 ```
