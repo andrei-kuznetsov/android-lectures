@@ -1,0 +1,895 @@
+====================================
+Вариант 1:
+====================================
+Конфигурация устройства:
+LOCALE: en-rUS
+SCREEN_SIZE: xlarge
+SCREEN_ASPECT: long
+ROUND_SCREEN: notround
+ORIENTATION: port
+UI_MODE: appliance
+NIGHT_MODE: notnight
+PIXEL_DENSITY: xhdpi
+TOUCH: notouch
+PRIMARY_INPUT: 12key
+NAV_KEYS: wheel
+PLATFORM_VER: v26
+
+Конфигурация ресурсов:
+(default)
+land-notouch-nonav-v25
+notlong-nonav
+xlarge-night-12key
+en-rUS-12key-dpad
+small-dpad-v26
+vrheadset-xxxhdpi
+en-xlarge-port-xhdpi-notouch-nonav-v27
+en-rUS-appliance-v27
+fr-normal-port-night-xxhdpi-wheel
+
+====================================
+Вариант 2:
+====================================
+Конфигурация устройства:
+LOCALE: fr-rCA
+SCREEN_SIZE: large
+SCREEN_ASPECT: notlong
+ROUND_SCREEN: notround
+ORIENTATION: land
+UI_MODE: watch
+NIGHT_MODE: notnight
+PIXEL_DENSITY: xhdpi
+TOUCH: notouch
+PRIMARY_INPUT: 12key
+NAV_KEYS: dpad
+PLATFORM_VER: v26
+
+Конфигурация ресурсов:
+(default)
+en-appliance-tvdpi-v25
+xlarge-round-land-tvdpi-dpad
+fr-rCA-notlong-port
+en-port-nodpi-notouch-wheel
+television-xxhdpi-finger-wheel
+fr-rFR-normal-round-port-television-nokeys
+fr-rFR-large-notouch
+fr-rCA-round-vrheadset-notouch-v27
+en-rUS-xhdpi-trackball
+v27
+
+====================================
+Вариант 3:
+====================================
+Конфигурация устройства:
+LOCALE: fr
+SCREEN_SIZE: large
+SCREEN_ASPECT: long
+ROUND_SCREEN: round
+ORIENTATION: port
+UI_MODE: desk
+NIGHT_MODE: notnight
+PIXEL_DENSITY: hdpi
+TOUCH: finger
+PRIMARY_INPUT: qwerty
+NAV_KEYS: nonav
+PLATFORM_VER: v25
+
+Конфигурация ресурсов:
+(default)
+round-night
+normal-round-watch-xxhdpi-wheel
+car-notnight-ldpi-nonav
+fr-round-nonav-v25
+large-notnight-nonav-v25
+notround-notouch
+en-rUS-small-notround-qwerty
+large-nodpi-nonav-v25
+large-long-watch-xxxhdpi
+xhdpi
+
+====================================
+Вариант 4:
+====================================
+Конфигурация устройства:
+LOCALE: fr
+SCREEN_SIZE: large
+SCREEN_ASPECT: long
+ROUND_SCREEN: round
+ORIENTATION: land
+UI_MODE: television
+NIGHT_MODE: notnight
+PIXEL_DENSITY: xhdpi
+TOUCH: notouch
+PRIMARY_INPUT: 12key
+NAV_KEYS: dpad
+PLATFORM_VER: v26
+
+Конфигурация ресурсов:
+(default)
+notnight-xxxhdpi-notouch
+long-finger-v26
+fr-port-finger
+fr-rFR-port-car-v26
+xlarge-long-land-tvdpi-finger
+long-vrheadset-v26
+long-mdpi-v26
+xlarge-notnight
+land-v25
+
+====================================
+Вариант 5:
+====================================
+Конфигурация устройства:
+LOCALE: fr-rCA
+SCREEN_SIZE: small
+SCREEN_ASPECT: long
+ROUND_SCREEN: notround
+ORIENTATION: port
+UI_MODE: vrheadset
+NIGHT_MODE: night
+PIXEL_DENSITY: nodpi
+TOUCH: notouch
+PRIMARY_INPUT: qwerty
+NAV_KEYS: wheel
+PLATFORM_VER: v26
+
+Конфигурация ресурсов:
+(default)
+notlong-12key-nonav-v27
+large-notround-vrheadset-notouch-dpad
+land-tvdpi-nonav
+notround
+fr-rFR-normal-round
+notround-v27
+en-rUS-small-notlong-notnight-notouch-wheel-v26
+notouch-trackball
+en-normal-port-qwerty
+
+====================================
+Вариант 6:
+====================================
+Конфигурация устройства:
+LOCALE: fr-rFR
+SCREEN_SIZE: normal
+SCREEN_ASPECT: notlong
+ROUND_SCREEN: notround
+ORIENTATION: land
+UI_MODE: desk
+NIGHT_MODE: notnight
+PIXEL_DENSITY: mdpi
+TOUCH: finger
+PRIMARY_INPUT: 12key
+NAV_KEYS: wheel
+PLATFORM_VER: v25
+
+Конфигурация ресурсов:
+(default)
+watch-ldpi-finger
+land-notouch-qwerty
+normal-round-notnight-v25
+land-xxxhdpi-v25
+fr-rCA-night-v27
+port
+en-rUS-finger
+long-port-xxxhdpi-notouch
+desk-finger-qwerty-dpad
+long-land-car-tvdpi
+
+====================================
+Вариант 7:
+====================================
+Конфигурация устройства:
+LOCALE: fr-rFR
+SCREEN_SIZE: xlarge
+SCREEN_ASPECT: notlong
+ROUND_SCREEN: notround
+ORIENTATION: land
+UI_MODE: watch
+NIGHT_MODE: notnight
+PIXEL_DENSITY: xhdpi
+TOUCH: notouch
+PRIMARY_INPUT: qwerty
+NAV_KEYS: nonav
+PLATFORM_VER: v26
+
+Конфигурация ресурсов:
+(default)
+notlong-port-qwerty-trackball
+fr-rCA-normal-notnight-notouch
+fr-rFR-appliance-notnight-qwerty-nonav
+land-night-finger
+fr-rCA-xlarge-notlong-land
+port-car-nonav
+normal
+nokeys
+fr-rFR-long-round-xxhdpi-finger-12key-wheel
+fr-rCA-notlong-desk-notnight-finger-12key-v25
+
+====================================
+Вариант 8:
+====================================
+Конфигурация устройства:
+LOCALE: fr-rCA
+SCREEN_SIZE: small
+SCREEN_ASPECT: notlong
+ROUND_SCREEN: notround
+ORIENTATION: port
+UI_MODE: watch
+NIGHT_MODE: night
+PIXEL_DENSITY: xhdpi
+TOUCH: notouch
+PRIMARY_INPUT: qwerty
+NAV_KEYS: wheel
+PLATFORM_VER: v26
+
+Конфигурация ресурсов:
+(default)
+port-finger-nokeys
+vrheadset-notnight-nokeys
+notouch
+wheel
+notlong-night-nodpi
+fr-port-notouch-dpad-v26
+notlong
+large-wheel
+round-desk-xxhdpi
+mdpi-qwerty-trackball
+
+====================================
+Вариант 9:
+====================================
+Конфигурация устройства:
+LOCALE: fr
+SCREEN_SIZE: large
+SCREEN_ASPECT: long
+ROUND_SCREEN: notround
+ORIENTATION: port
+UI_MODE: watch
+NIGHT_MODE: notnight
+PIXEL_DENSITY: xhdpi
+TOUCH: notouch
+PRIMARY_INPUT: qwerty
+NAV_KEYS: dpad
+PLATFORM_VER: v25
+
+Конфигурация ресурсов:
+(default)
+fr-rFR-normal-mdpi
+port-notouch-dpad
+long-trackball-v27
+long-nokeys-dpad-v25
+land-television-night-12key-nonav-v27
+land-television-night-finger
+en-notlong-trackball
+trackball
+small-qwerty-v25
+notnight-nodpi-nokeys
+
+====================================
+Вариант 10:
+====================================
+Конфигурация устройства:
+LOCALE: en-rUS
+SCREEN_SIZE: small
+SCREEN_ASPECT: long
+ROUND_SCREEN: notround
+ORIENTATION: land
+UI_MODE: desk
+NIGHT_MODE: night
+PIXEL_DENSITY: tvdpi
+TOUCH: finger
+PRIMARY_INPUT: nokeys
+NAV_KEYS: dpad
+PLATFORM_VER: v27
+
+Конфигурация ресурсов:
+(default)
+vrheadset-wheel-v26
+vrheadset-night
+xlarge
+en-xlarge-land-vrheadset-finger
+port-nokeys-trackball
+en-long-dpad
+notround-land-dpad-v26
+small-notouch-nokeys-v25
+xlarge-notlong-notround-nokeys-v27
+en-rUS-notlong-port-car-12key
+
+====================================
+Вариант 11:
+====================================
+Конфигурация устройства:
+LOCALE: en
+SCREEN_SIZE: small
+SCREEN_ASPECT: long
+ROUND_SCREEN: round
+ORIENTATION: port
+UI_MODE: television
+NIGHT_MODE: night
+PIXEL_DENSITY: hdpi
+TOUCH: notouch
+PRIMARY_INPUT: qwerty
+NAV_KEYS: wheel
+PLATFORM_VER: v25
+
+Конфигурация ресурсов:
+(default)
+normal-notlong-trackball
+notlong-notround-xxxhdpi
+port-nodpi-qwerty-trackball
+en-rUS-xlarge-finger-wheel
+long-round-hdpi
+finger
+appliance-night-ldpi
+land-television-night-xxxhdpi-notouch-12key
+en-rUS-notround-appliance-tvdpi
+television-qwerty-v26
+
+====================================
+Вариант 12:
+====================================
+Конфигурация устройства:
+LOCALE: fr-rCA
+SCREEN_SIZE: xlarge
+SCREEN_ASPECT: long
+ROUND_SCREEN: round
+ORIENTATION: port
+UI_MODE: television
+NIGHT_MODE: night
+PIXEL_DENSITY: xhdpi
+TOUCH: finger
+PRIMARY_INPUT: qwerty
+NAV_KEYS: trackball
+PLATFORM_VER: v25
+
+Конфигурация ресурсов:
+(default)
+round-night
+land-appliance-notnight-xxhdpi-12key
+dpad-v26
+notlong-land-hdpi-nokeys
+small-tvdpi-finger-nonav
+fr-long-notouch
+land-notouch
+mdpi-v25
+fr-large-ldpi-qwerty-v27
+xlarge-finger-wheel
+
+====================================
+Вариант 13:
+====================================
+Конфигурация устройства:
+LOCALE: en-rUS
+SCREEN_SIZE: xlarge
+SCREEN_ASPECT: notlong
+ROUND_SCREEN: round
+ORIENTATION: port
+UI_MODE: vrheadset
+NIGHT_MODE: notnight
+PIXEL_DENSITY: nodpi
+TOUCH: notouch
+PRIMARY_INPUT: qwerty
+NAV_KEYS: nonav
+PLATFORM_VER: v27
+
+Конфигурация ресурсов:
+(default)
+land-nokeys-dpad
+fr-rFR-xlarge-vrheadset-night
+hdpi-v26
+normal-land-night-xhdpi-v26
+small-finger
+notround-notouch-12key-trackball
+xlarge-television-notnight
+fr-small-notlong-wheel
+
+====================================
+Вариант 14:
+====================================
+Конфигурация устройства:
+LOCALE: en-rUS
+SCREEN_SIZE: small
+SCREEN_ASPECT: long
+ROUND_SCREEN: round
+ORIENTATION: port
+UI_MODE: appliance
+NIGHT_MODE: night
+PIXEL_DENSITY: hdpi
+TOUCH: notouch
+PRIMARY_INPUT: qwerty
+NAV_KEYS: wheel
+PLATFORM_VER: v27
+
+Конфигурация ресурсов:
+(default)
+xlarge-notlong-hdpi
+notlong-land-night-nokeys
+fr-rFR-large-notlong-notround-v26
+land-ldpi-finger-dpad
+mdpi
+small-xxhdpi-qwerty
+television-nonav-v27
+long-round-night-nokeys
+land-notouch-nonav
+normal-long-land-watch-notouch-nonav
+
+====================================
+Вариант 15:
+====================================
+Конфигурация устройства:
+LOCALE: fr
+SCREEN_SIZE: normal
+SCREEN_ASPECT: long
+ROUND_SCREEN: round
+ORIENTATION: land
+UI_MODE: car
+NIGHT_MODE: notnight
+PIXEL_DENSITY: xxxhdpi
+TOUCH: finger
+PRIMARY_INPUT: 12key
+NAV_KEYS: dpad
+PLATFORM_VER: v27
+
+Конфигурация ресурсов:
+(default)
+fr-rFR-large-round-notnight-v27
+en-rUS-long-port-hdpi-finger-dpad
+en-small-notround-nonav
+land-finger-nonav-v26
+large-port-qwerty-nonav
+large-long-port-12key
+notlong-qwerty-v25
+fr-rCA-long-car-night-hdpi-wheel
+notlong
+notouch-nonav-v27
+
+====================================
+Вариант 16:
+====================================
+Конфигурация устройства:
+LOCALE: fr
+SCREEN_SIZE: large
+SCREEN_ASPECT: notlong
+ROUND_SCREEN: round
+ORIENTATION: land
+UI_MODE: television
+NIGHT_MODE: notnight
+PIXEL_DENSITY: nodpi
+TOUCH: notouch
+PRIMARY_INPUT: qwerty
+NAV_KEYS: trackball
+PLATFORM_VER: v26
+
+Конфигурация ресурсов:
+(default)
+port-nokeys
+normal-notround-land-car-notnight-hdpi-notouch
+en-rUS-notlong-hdpi-notouch
+long-nokeys
+normal-round-notnight-finger-qwerty-v27
+normal-notnight
+large
+vrheadset-mdpi-finger-nokeys
+vrheadset
+ldpi-wheel-v26
+
+====================================
+Вариант 17:
+====================================
+Конфигурация устройства:
+LOCALE: fr-rFR
+SCREEN_SIZE: large
+SCREEN_ASPECT: long
+ROUND_SCREEN: notround
+ORIENTATION: land
+UI_MODE: appliance
+NIGHT_MODE: night
+PIXEL_DENSITY: nodpi
+TOUCH: notouch
+PRIMARY_INPUT: 12key
+NAV_KEYS: trackball
+PLATFORM_VER: v25
+
+Конфигурация ресурсов:
+(default)
+night-xxhdpi
+notlong-notround-car-notnight-tvdpi-finger-qwerty
+en-rUS-large-round-port-notouch-v25
+long
+small-notround-port-night-nokeys-v25
+notround-notouch-12key
+desk
+xlarge-desk-nonav
+notlong-port-desk
+notlong-v27
+
+====================================
+Вариант 18:
+====================================
+Конфигурация устройства:
+LOCALE: fr
+SCREEN_SIZE: small
+SCREEN_ASPECT: notlong
+ROUND_SCREEN: notround
+ORIENTATION: port
+UI_MODE: vrheadset
+NIGHT_MODE: night
+PIXEL_DENSITY: xhdpi
+TOUCH: notouch
+PRIMARY_INPUT: qwerty
+NAV_KEYS: trackball
+PLATFORM_VER: v26
+
+Конфигурация ресурсов:
+(default)
+long-land-v26
+notround-watch-notnight-v27
+small-long-round-port-hdpi-notouch
+round-port-xxxhdpi-notouch-12key
+en-rUS-round-notouch-trackball
+en-large-port-night-v27
+xlarge-notnight-mdpi
+trackball
+round-dpad
+large-night-v26
+
+====================================
+Вариант 19:
+====================================
+Конфигурация устройства:
+LOCALE: en
+SCREEN_SIZE: normal
+SCREEN_ASPECT: long
+ROUND_SCREEN: notround
+ORIENTATION: port
+UI_MODE: car
+NIGHT_MODE: night
+PIXEL_DENSITY: ldpi
+TOUCH: notouch
+PRIMARY_INPUT: qwerty
+NAV_KEYS: dpad
+PLATFORM_VER: v25
+
+Конфигурация ресурсов:
+(default)
+en-rUS-notround-ldpi-finger-qwerty
+long-vrheadset
+round-watch-xxxhdpi-v26
+xlarge-long-watch-nokeys
+notround-car-xxxhdpi-wheel
+trackball
+fr-large-round-land-hdpi-notouch
+long-land-night-v26
+small-night-hdpi
+12key
+
+====================================
+Вариант 20:
+====================================
+Конфигурация устройства:
+LOCALE: en-rUS
+SCREEN_SIZE: xlarge
+SCREEN_ASPECT: notlong
+ROUND_SCREEN: notround
+ORIENTATION: land
+UI_MODE: car
+NIGHT_MODE: night
+PIXEL_DENSITY: xhdpi
+TOUCH: notouch
+PRIMARY_INPUT: nokeys
+NAV_KEYS: trackball
+PLATFORM_VER: v25
+
+Конфигурация ресурсов:
+(default)
+fr-rCA-small-watch-night
+port-nokeys-v27
+port-night-nodpi-qwerty
+normal-round
+notlong-round-port-notouch-wheel-v27
+normal-television-nokeys
+finger-12key-dpad
+notround-finger-nokeys
+notouch
+large-notlong-notround-television-notnight-12key-trackball
+
+====================================
+Вариант 21:
+====================================
+Конфигурация устройства:
+LOCALE: fr-rFR
+SCREEN_SIZE: normal
+SCREEN_ASPECT: long
+ROUND_SCREEN: round
+ORIENTATION: port
+UI_MODE: car
+NIGHT_MODE: notnight
+PIXEL_DENSITY: hdpi
+TOUCH: finger
+PRIMARY_INPUT: qwerty
+NAV_KEYS: nonav
+PLATFORM_VER: v26
+
+Конфигурация ресурсов:
+(default)
+mdpi-nokeys-v27
+trackball
+normal-television
+land-xxhdpi
+large-night-xxhdpi-12key
+ldpi
+en-normal-port-xhdpi-notouch-trackball
+en-normal-port-v26
+fr-notround-nonav
+vrheadset-notouch-v26
+
+====================================
+Вариант 22:
+====================================
+Конфигурация устройства:
+LOCALE: fr-rFR
+SCREEN_SIZE: normal
+SCREEN_ASPECT: long
+ROUND_SCREEN: notround
+ORIENTATION: land
+UI_MODE: appliance
+NIGHT_MODE: notnight
+PIXEL_DENSITY: xhdpi
+TOUCH: finger
+PRIMARY_INPUT: nokeys
+NAV_KEYS: nonav
+PLATFORM_VER: v27
+
+Конфигурация ресурсов:
+(default)
+notround-port
+fr-port-appliance
+round-xxhdpi-notouch
+fr-rCA-normal-long-land-television-12key-v27
+notlong-land-night-ldpi
+notround-vrheadset-notnight-xxhdpi-notouch-v25
+round-notnight-12key-trackball
+fr-rCA-round-night-v25
+long-land-notnight-tvdpi-qwerty-wheel-v26
+en-rUS-round-xhdpi
+
+====================================
+Вариант 23:
+====================================
+Конфигурация устройства:
+LOCALE: fr-rCA
+SCREEN_SIZE: large
+SCREEN_ASPECT: long
+ROUND_SCREEN: notround
+ORIENTATION: port
+UI_MODE: desk
+NIGHT_MODE: night
+PIXEL_DENSITY: xxxhdpi
+TOUCH: finger
+PRIMARY_INPUT: nokeys
+NAV_KEYS: trackball
+PLATFORM_VER: v26
+
+Конфигурация ресурсов:
+(default)
+small-long-land-notnight-nodpi
+small-tvdpi-notouch
+watch-notnight
+small-notnight-xxhdpi-finger
+xlarge-xhdpi-nonav-v26
+large-desk-notnight-hdpi-v26
+notlong-car-qwerty
+en-land-12key
+fr-xlarge-long-12key-wheel
+en-vrheadset-xxxhdpi-notouch
+
+====================================
+Вариант 24:
+====================================
+Конфигурация устройства:
+LOCALE: fr
+SCREEN_SIZE: xlarge
+SCREEN_ASPECT: notlong
+ROUND_SCREEN: round
+ORIENTATION: port
+UI_MODE: television
+NIGHT_MODE: night
+PIXEL_DENSITY: xxhdpi
+TOUCH: notouch
+PRIMARY_INPUT: qwerty
+NAV_KEYS: wheel
+PLATFORM_VER: v26
+
+Конфигурация ресурсов:
+(default)
+notnight-finger-qwerty-v26
+xxhdpi-finger-nokeys
+round-land-mdpi-12key
+port-finger-v27
+long
+fr-notlong-watch-finger-dpad-v27
+finger-v27
+watch-notnight-xxxhdpi
+large-round-12key-v27
+desk-night-xhdpi-12key
+
+====================================
+Вариант 25:
+====================================
+Конфигурация устройства:
+LOCALE: fr-rCA
+SCREEN_SIZE: normal
+SCREEN_ASPECT: long
+ROUND_SCREEN: round
+ORIENTATION: port
+UI_MODE: appliance
+NIGHT_MODE: notnight
+PIXEL_DENSITY: hdpi
+TOUCH: notouch
+PRIMARY_INPUT: qwerty
+NAV_KEYS: dpad
+PLATFORM_VER: v27
+
+Конфигурация ресурсов:
+(default)
+round-night-xhdpi-notouch-wheel
+long-notround-television-night-v26
+round-notouch-v27
+xlarge-v26
+xlarge-port-watch-xhdpi-v26
+large-land-notnight-nokeys
+en-normal-finger-trackball-v25
+xxxhdpi-v27
+en-appliance-finger
+xlarge-long-hdpi
+
+====================================
+Вариант 26:
+====================================
+Конфигурация устройства:
+LOCALE: fr
+SCREEN_SIZE: small
+SCREEN_ASPECT: long
+ROUND_SCREEN: round
+ORIENTATION: port
+UI_MODE: television
+NIGHT_MODE: notnight
+PIXEL_DENSITY: mdpi
+TOUCH: notouch
+PRIMARY_INPUT: nokeys
+NAV_KEYS: trackball
+PLATFORM_VER: v27
+
+Конфигурация ресурсов:
+(default)
+en-rUS-notround-vrheadset-hdpi-12key
+fr-rCA-large-notlong-vrheadset-nodpi
+fr-xlarge-notlong-notouch-wheel
+en-night-v26
+appliance-notouch
+notround-night-v25
+notlong-appliance-night
+fr-notlong-notround-12key-v26
+xlarge-long-car-dpad-v27
+notlong-port
+
+====================================
+Вариант 27:
+====================================
+Конфигурация устройства:
+LOCALE: fr-rCA
+SCREEN_SIZE: normal
+SCREEN_ASPECT: long
+ROUND_SCREEN: round
+ORIENTATION: land
+UI_MODE: car
+NIGHT_MODE: night
+PIXEL_DENSITY: hdpi
+TOUCH: notouch
+PRIMARY_INPUT: qwerty
+NAV_KEYS: nonav
+PLATFORM_VER: v26
+
+Конфигурация ресурсов:
+(default)
+night-nodpi-notouch-nokeys
+long-notround-night-finger-qwerty-dpad
+normal-round-hdpi-notouch-wheel-v26
+large-night-finger-trackball-v27
+vrheadset-night-notouch-nonav
+notlong-round-ldpi-qwerty-v25
+round-notouch-qwerty
+desk-finger-12key
+finger
+port
+
+====================================
+Вариант 28:
+====================================
+Конфигурация устройства:
+LOCALE: en
+SCREEN_SIZE: small
+SCREEN_ASPECT: long
+ROUND_SCREEN: notround
+ORIENTATION: port
+UI_MODE: car
+NIGHT_MODE: night
+PIXEL_DENSITY: xxxhdpi
+TOUCH: notouch
+PRIMARY_INPUT: 12key
+NAV_KEYS: nonav
+PLATFORM_VER: v27
+
+Конфигурация ресурсов:
+(default)
+long-nodpi-12key-v25
+en-notlong-land-notnight
+en-rUS-v25
+fr-xhdpi-12key-v27
+fr-rCA-notlong-land-night
+large-port
+large-port-notouch-v27
+notnight
+long-notround-watch-qwerty-dpad-v27
+port-vrheadset-notnight
+
+====================================
+Вариант 29:
+====================================
+Конфигурация устройства:
+LOCALE: fr-rFR
+SCREEN_SIZE: xlarge
+SCREEN_ASPECT: notlong
+ROUND_SCREEN: round
+ORIENTATION: port
+UI_MODE: television
+NIGHT_MODE: notnight
+PIXEL_DENSITY: tvdpi
+TOUCH: notouch
+PRIMARY_INPUT: qwerty
+NAV_KEYS: dpad
+PLATFORM_VER: v25
+
+Конфигурация ресурсов:
+(default)
+large-notlong-finger
+long-12key
+long-port-notnight-finger
+fr-rFR-small-long-round-night-notouch-v26
+ldpi-finger
+trackball
+fr-appliance-notnight-tvdpi-nokeys-trackball
+xlarge-notlong-television-notnight-notouch
+en-rUS
+port-night
+
+====================================
+Вариант 30:
+====================================
+Конфигурация устройства:
+LOCALE: fr
+SCREEN_SIZE: small
+SCREEN_ASPECT: long
+ROUND_SCREEN: notround
+ORIENTATION: land
+UI_MODE: desk
+NIGHT_MODE: night
+PIXEL_DENSITY: hdpi
+TOUCH: notouch
+PRIMARY_INPUT: nokeys
+NAV_KEYS: dpad
+PLATFORM_VER: v27
+
+Конфигурация ресурсов:
+(default)
+en-rUS-port-tvdpi
+fr-rCA-notround-land-night-finger-qwerty-v27
+normal-desk-notnight
+fr-car-notouch-wheel
+large-land-notnight-nodpi-v27
+en-rUS-large-long-qwerty-v25
+notnight
+notlong-wheel
+large-nokeys
+long-appliance-night-notouch-nokeys
+
