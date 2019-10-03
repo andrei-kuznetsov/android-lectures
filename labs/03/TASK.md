@@ -1,4 +1,3 @@
-# Черновик!
 # Лабораторная работа №3. Lifecycle компоненты. Навигация в приложении.  
 ## Цели  
 * Ознакомиться с методом обработки жизненного цикла activity/fragment при помощи Lifecycle-Aware компонентов    
@@ -12,24 +11,60 @@
 #### Указания  
 В отчете укажите, какую новую полезную информацию/навыки удалось усвоить/получить в процессе выполнения задания. 
   
-### Задача 2. Навигация (Activity)
+### Задача 2. Навигация (startActivityForResult)
 #### Задание
-Реализуйте навигацию между экранами одного приложения согласно [варианту](VARIANTS02.md) с помощью Activity и Intent.
-  
+Реализуйте навигацию между экранами одного приложения согласно изображению ниже с помощью Activity, Intent и метода `startActivityForResult`.
+![эскиз](activities.svg)
+
+
+#### Пояснения
+* Приложение начинает работу с отображения Activity 1
+* Кнопка 'to first' отображает на экране Activity 1
+* Кнопка 'to second' отображает на экране Activity 2
+* Кнопка 'to third' отображает на экране Activity 3
+* В любой момент в backstack любого task приложения должно быть не более 4 activity
+* Во всех вариантах Activity 'About' должна быть доступна из любой другой Activity одним из способов согласно варианту.
+
+#### Варианты задания
+Во всех вариантах Activity 'About' должна быть доступна из любой другой Activity одним из указанных способов:
+
+Варианты 1,4,7,10,...: [Navigation Drawer](https://developer.android.com/guide/navigation/navigation-ui#add_a_navigation_drawer)
+
+Варианты 2,5,8,11,...: [Bottom Navigation](https://developer.android.com/guide/navigation/navigation-ui#bottom_navigation)
+
+Варианты 3,6,9,12,...: [Options Menu](https://developer.android.com/guide/topics/ui/menus#options-menu)
+
 #### Указания
-Для решения задачи могут понадобиться методы Activity (https://developer.android.com/reference/android/app/Activity.html#starting-activities-and-getting-results):
+Для решения задачи понадобятся методы Activity (https://developer.android.com/reference/android/app/Activity.html#starting-activities-and-getting-results):
 * `startActivity`, `startActivityForResult`
 * `setResult`, `onActivityResult`
 * `finish`
 
 Каждую Activity необходимо зарегистрировать в файле AndroidManifest.xml. В отчете укажите, что произойдет, если забыть зарегистрировать Activity.
 
+Не используйте флаги Intent и атрибуты Activity в этом задании.
 
-### Задача 3. Навигация (Fragments, Navigation Graph) 
-Решите предыдущую задачу с использованием fragment и navigation graph. В отчете сравните два решения.
+### Задача 3. Навигация (флаги Intent/атрибуты Activity)
+#### Задание
+Решите предыдущую задачу с помощью Activity, Intent и флагов Intent либо атрибутов Activity.
 
 #### Указания
-Ознакомьтесь с navigation graph по документации (https://developer.android.com/guide/navigation/navigation-getting-started) или видеоуроку (https://classroom.udacity.com/courses/ud9012 Lesson 3 “App Navigation”))
+Не используйте `startActivityForResult` в этом задании.
+
+### Задача 4. Навигация (флаги Intent/атрибуты Activity)
+Дополните граф навигации новым(-и) переходом(-ами) с целью демонстрации какого-нибудь (на свое усмотрение) атрибута Activity или флага Intent, который еще не использовался для решения задачи. Поясните пример и работу флага/атрибута.
+
+Ограничение на размер backstack к этому и следующему заданию не применяется.
+
+### Задача 5. Навигация (Fragments, Navigation Graph) 
+Решите предыдущую задачу (с расширенным графом) с использованием navigation graph. Все Activity должны быть заменены на фрагменты, кроме Activity 'About', которая должна остаться самостоятельной Activity.
+В отчете сравните все решения.
+
+#### Указания
+* Ознакомьтесь с navigation graph по документации (https://developer.android.com/guide/navigation/navigation-getting-started) или видеоуроку (https://classroom.udacity.com/courses/ud9012 Lesson 3 “App Navigation”))
+* Для отображения layout в fragment используйте метод `onCreateView` (см. пример: https://developer.android.com/guide/components/fragments#UI).
+* Регистрацию отбработки событий от кнопок выполняйте так же, как для Activity, но в методе fragment `onActivityCreated()`
+
   
 ## Отчет  
 Отчет должен содержать формулировку целей, решения задач с ответами на дополнительные вопросы из раздела «указания», выводы. Выводы должны содержать убедительное обоснование, почему автор отчета считает, что все цели были достигнуты. Например, обоснование может включать краткую информацию о том, как достигалась каждая из поставленных целей.
