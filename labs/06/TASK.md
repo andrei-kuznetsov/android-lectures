@@ -2,8 +2,10 @@
 
 ## Цели
 Получить практические навыки разработки многопоточных приложений:
-1. Организация обработки длительных операций в background (worker) thread.
-1. Публикация данных из  background (worker) thread в main (ui) thread.
+1. Организация обработки длительных операций в background (worker) thread:
+    * Запуск фоновой операции (coroutine/asynctask/thread)
+    * Остановка фоновой операции (coroutine/asynctask/thread)
+1. Публикация данных из background (worker) thread в main (ui) thread.
 
 Освоить 3 основные группы API для разработки многопоточных приложений:
 1. Kotlin Coroutines
