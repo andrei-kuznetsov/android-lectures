@@ -17,7 +17,7 @@
 10. ROOM: Database, DAO, Entity.
 10. Content providers, Temporary URI permissions
 10. Storage access framework
-~~9. Не в доступе: публикация приложений в google play
+9. ~~Не в доступе: публикация приложений в google play~~
 
 # Полезные ссылки:
 1. https://developer.android.com/guide
