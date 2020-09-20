@@ -1,27 +1,12 @@
-import AlternativeGroup.*
+package name.kuznetsov.android.lectures.lab02
+
+import name.kuznetsov.android.lectures.lab02.AlternativeGroup.*
 import org.junit.Test
 import java.nio.file.Paths
 import java.util.*
 import kotlin.test.assertEquals
-import kotlin.test.assertFalse
-import kotlin.test.assertTrue
 
-class TestSolver {
-
-    @Test
-    fun apiVersionTest() {
-        assertFalse(PLATFORM_VER.compatible(AlternativeGroupInst(PLATFORM_VER, "v25"), AlternativeGroupInst(PLATFORM_VER, "v24")))
-        assertTrue(PLATFORM_VER.compatible(AlternativeGroupInst(PLATFORM_VER, "v25"), AlternativeGroupInst(PLATFORM_VER, "v25")))
-        assertTrue(PLATFORM_VER.compatible(AlternativeGroupInst(PLATFORM_VER, "v25"), AlternativeGroupInst(PLATFORM_VER, "v26")))
-    }
-
-    @Test
-    fun screenSizeTest() {
-        assertFalse(SCREEN_SIZE.compatible(AlternativeGroupInst(SCREEN_SIZE, "large"), AlternativeGroupInst(SCREEN_SIZE, "normal")))
-        assertFalse(SCREEN_SIZE.compatible(AlternativeGroupInst(SCREEN_SIZE, "normal"), AlternativeGroupInst(SCREEN_SIZE, "small")))
-        assertTrue(SCREEN_SIZE.compatible(AlternativeGroupInst(SCREEN_SIZE, "normal"), AlternativeGroupInst(SCREEN_SIZE, "normal")))
-        assertTrue(SCREEN_SIZE.compatible(AlternativeGroupInst(SCREEN_SIZE, "normal"), AlternativeGroupInst(SCREEN_SIZE, "large")))
-    }
+class E2ETest {
 
     @Test
     fun wellKnownSampleTest() {
@@ -84,7 +69,7 @@ class TestSolver {
     fun fromVariant() {
         val variant = 6
 
-        val scan = Scanner(Paths.get("C:\\data\\spbstu\\android-lectures\\labs\\02\\VARIANTS03.txt"))
+        val scan = Scanner(Paths.get("../VARIANTS03.txt").toAbsolutePath())
 
         findMarker(scan, "Вариант $variant:")
 
