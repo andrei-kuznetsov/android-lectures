@@ -1,7 +1,7 @@
 # Лабораторная работа №3. Lifecycle компоненты. Навигация в приложении.  
 ## Цели  
 * Ознакомиться с методом обработки жизненного цикла activity/fragment при помощи Lifecycle-Aware компонентов    
-* Изучить основные возможности навигации внутри приложения: созданиие новых activity, navigation graph  
+* Изучить основные возможности навигации внутри приложения: создание новых activity, navigation graph  
   
 ## Задачи  
 ### Задача 1. Обработка жизненного цикла с помощью Lifecycle-Aware компонентов  
@@ -71,7 +71,6 @@
 #### Указания
 * Ознакомьтесь с navigation graph по документации (https://developer.android.com/guide/navigation/navigation-getting-started) или видеоуроку (https://classroom.udacity.com/courses/ud9012 Lesson 3 “App Navigation”))
 * Для отображения layout в fragment используйте метод `onCreateView` (см. пример: https://developer.android.com/guide/components/fragments#UI).
-* Регистрацию отбработки событий от кнопок выполняйте так же, как для Activity, но в методе fragment `onActivityCreated()`
 
   
 ## Отчет  
