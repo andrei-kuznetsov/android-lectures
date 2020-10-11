@@ -488,6 +488,7 @@ singleInstance
 <!-- обратим внимание, что bottom navigation дёргается -->
 <!-- проблема передачи состояния между destinations -->
 <!-- https://www.youtube.com/watch?v=9O1D_Ytk0xg предлагается использовать activity как скоп для состояния (вместо глобального application), и внутри activity иметь несколько destinations -->
+
 ---
 
 # Fragments
