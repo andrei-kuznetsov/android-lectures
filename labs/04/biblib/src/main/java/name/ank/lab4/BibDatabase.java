@@ -49,6 +49,13 @@ public class BibDatabase {
     return new BibEntry(entries.get(idx), cfg);
   }
 
+  /**
+   * Database size
+   */
+  public int size() {
+    return entries.size();
+  }
+
   public BibConfig getCfg() {
     return cfg;
   }

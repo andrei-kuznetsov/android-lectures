@@ -35,7 +35,7 @@ public class BibEntry {
   public Types getType() {
     assertDelegateIsValid();
     Types ret = Types.fromBtValue(delegate.getType());
-    assert ret != null : "All the types must have mappings";
+    assert ret != null : "All the types must have mappings: " + delegate.getType();
     return ret;
   }
 
