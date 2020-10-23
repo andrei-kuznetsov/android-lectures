@@ -5,8 +5,9 @@ class Solver {
         printRemaining(resources)
         println("---")
 
-        println("Removing contradictory configurations => (left)")
+        println("Removing contradictory configurations => ")
         resources.removeIf { r -> r.contradicts(device, { res, dev -> println("$res != $dev") }) }
+        println("Remaining =>")
         printRemaining(resources)
         println("---")
 

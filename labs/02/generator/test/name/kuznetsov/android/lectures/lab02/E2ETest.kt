@@ -67,7 +67,7 @@ class E2ETest {
 
     @Test
     fun fromVariant() {
-        val variant = 6
+        val variant = 9
 
         val scan = Scanner(Paths.get("../VARIANTS03.txt").toAbsolutePath())
 
@@ -81,6 +81,8 @@ class E2ETest {
 
         val solver = Solver()
         val solved = solver.solveTask(device, resources)
+
+        println("Solution =>")
         println(solved)
     }
 
