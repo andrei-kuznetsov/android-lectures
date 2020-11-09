@@ -48,9 +48,6 @@ section.flexrow h1 {
 <!-- _paginate: false -->
 <!-- _footer: "Creative Commons Attribution-ShareAlike 3.0" -->
 
-## Fragments
-https://developer.android.com/guide/components/fragments
-
 ---
 # В предыдущих лекциях ...
 
@@ -246,7 +243,25 @@ Flags
 
 ---
 
-# Implicit Intent Resolution
+# Вопрос
+
+Что будет, если в качестве `Component Name` указать компонент из "чужого" приложения?
+
+---
+
+# One More *Explicit Intent* DEMO
+Запустим Activity из "чужого" приложения
+
+```kotlin
+val i = Intent()
+i.setComponent(
+    ComponentName.createRelative(
+        "com.google.android.youtube",
+        "com.google.android.apps.youtube.app.application.Shell\$UploadActivity"
+    )
+)
+```
+See also: https://developers.google.com/youtube/android/player/reference/com/google/android/youtube/player/YouTubeIntents
 
 ---
 
@@ -265,6 +280,31 @@ ul {flex:1;}
 
 ---
 
+# Implicit Intent: Философия
+
+Action определяет остальную структуру `Intent` -- содержимое полей `data` и `extras`. 
+* Можно провести аналогию с именем метода класса, определяющим набор аргументов и возвращаемое значение.
+* Если определяете свой `Action`, нужно продумать семантику остальных полей `Intent`.
+
+---
+
+# Стандартные ситуации
+
+![h:550 center](res/intents-common.png)
+
+<!-- _footer: https://developer.android.com/guide/components/intents-common -->
+
+---
+
+# DEMO: ACTION_PICK
+```kotlin
+val i = Intent(Intent.ACTION_PICK)
+(1) i.type = ContactsContract.Contacts.CONTENT_TYPE
+(2) i.type = "video/*"
+```
+
+---
+
 # Intent Resolution: Implicit Intent
 
 Используются только 3 поля:
@@ -274,63 +314,18 @@ ul {flex:1;}
 
 ---
 
-# Intent: Action. Философия
+# Intent Resolution: Intent Filter
 
-Action во многом определяет остальную структуру `Intent`, в частности содержимое полей `data` и `extras`. 
+Компоненты, которые активируются `Intent`'ом, могут объявлять один или более `intent-filter` в `AndroidManifest.xml`
 
-Можно провести аналогию с именем метода класса, определяющим набор аргументов и возвращаемое значение.
-
-Рекомендуется определять не только `Action`, а полностью протокол взаимодействия с компонентом.
-
----
-
-# Intent: Action
-
-Строка (`String`)
-- Имя действия (или имя события для Broadcast Receivers)
-
-Значение
-- Одно из стандартных
-- Можно объявить собственное (просто строка!)
-  - Пример: `"com.example.project.SHOW_COLOR"`
-
----
-
-# Some Standard Actions
-
-| Constant | Target component | Action |
-|-|-|-|
-|ACTION_CALL|activity|Initiate a phone call.|
-|ACTION_EDIT|activity|Display data for the user to edit.|
-|ACTION_MAIN|activity|Start up as the initial activity of a task, with no data input and no returned output.|
-|ACTION_SYNC|activity|Synchronize data on a server with data on the mobile device.|
-ACTION_BATTERY_LOW|broadcast receiver|A warning that the battery is low.|
-|ACTION_HEADSET_PLUG|broadcast receiver|A headset has been plugged into the device, or unplugged from it.|
-|ACTION_SCREEN_ON|broadcast receiver|The screen has been turned on.|
-|ACTION_TIMEZONE_CHANGED|broadcast receiver|The setting for the time zone has changed.|
-
----
-
-# Intent: Category
-
-Строка (`String`)
-- Доп. информация о типе компонента, на который направлено действие
-
-Значение
-- Одно из стандартных
-- Можно объявить собственное (просто строка!)
-  - Пример: `"com.example.project.MY_CATEGORY"`
-
----
-
-# Some Standard Categories
-
-|Constant|Meaning|
-|-|-|
-|CATEGORY_BROWSABLE|The target activity can be safely invoked by the browser to display data referenced by a link —for example, an image or an e-mail message.|
-|CATEGORY_GADGET|The activity can be embedded inside of another activity that hosts gadgets.|
-|CATEGORY_LAUNCHER|The activity can be the initial activity of a task and is listed in the top-level application launcher.|
-|CATEGORY_PREFERENCE|The target activity is a preference panel.|
+```xml
+<activity android:name=".MainActivity">
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+    </intent-filter>
+</activity>
+```
 
 ---
 
@@ -418,17 +413,57 @@ pre code svg {
 
 ---
 
-<!-- _footer: https://developer.android.com/guide/topics/manifest/intent-filter-element -->
+# Intent: `action`
 
-![h:600 center](res/doc_intent-filter-element.png)
+Строка (`String`)
+- Имя действия (или имя события для Broadcast Receivers)
+
+Значение
+- Одно из стандартных
+- Можно объявить собственное (просто строка)
+  - Пример: `"com.example.project.SHOW_COLOR"`
 
 ---
 
-# Intent Filter
+# Some Standard Actions
 
-Сообщает ОС какие неявные intent может обрабатывать компонент.
+| Constant | Target component | Action |
+|-|-|-|
+|ACTION_CALL|activity|Initiate a phone call.|
+|ACTION_EDIT|activity|Display data for the user to edit.|
+|ACTION_MAIN|activity|Start up as the initial activity of a task, with no data input and no returned output.|
+|ACTION_SYNC|activity|Synchronize data on a server with data on the mobile device.|
+ACTION_BATTERY_LOW|broadcast receiver|A warning that the battery is low.|
+|ACTION_HEADSET_PLUG|broadcast receiver|A headset has been plugged into the device, or unplugged from it.|
+|ACTION_SCREEN_ON|broadcast receiver|The screen has been turned on.|
+|ACTION_TIMEZONE_CHANGED|broadcast receiver|The setting for the time zone has changed.|
 
-Подумаем ещё раз о `startActivity` и **implicit intent**
+<!-- _footer: https://developer.android.com/reference/android/content/Intent#standard-activity-actions -->
+
+---
+
+# Intent: `categories`
+
+Строки (`String[]`)
+- Доп. информация о типе компонента, на который направлено действие
+
+Значение
+- Одно из стандартных
+- Можно объявить собственное (просто строка)
+  - Пример: `"com.example.project.MY_CATEGORY"`
+
+---
+
+# Some Standard Categories
+
+|Constant|Meaning|
+|-|-|
+|CATEGORY_BROWSABLE|The target activity can be safely invoked by the browser to display data referenced by a link —for example, an image or an e-mail message.|
+|CATEGORY_GADGET|The activity can be embedded inside of another activity that hosts gadgets.|
+|CATEGORY_LAUNCHER|The activity can be the initial activity of a task and is listed in the top-level application launcher.|
+|CATEGORY_PREFERENCE|The target activity is a preference panel.|
+
+<!-- _footer: https://developer.android.com/reference/android/content/Intent#standard-categories -->
 
 ---
 
@@ -464,28 +499,28 @@ pre code svg {
 
 ---
 
-# Intent: Data
+# Intent: `data+type`
 
 URI данных, над которыми производится действие и MIME этих данных
 - Например, контакт в телефонной книжке
 
 ---
 
-# Intent: Data
+# Intent: `data+type`
 
 **Data** = `URI + MIME`
-**URI** = `scheme://host:port/path`
+**URI** (=`data`) = `scheme://host:port/path`
 - `content://com.example.project:200/folder/subfolder/etc`
 
 **URI authority** = `host:port`
 
-**MIME** (Multipurpose Internet Mail Extensions)
+**MIME** (=`type`) (Multipurpose Internet Mail Extensions)
 - `text/plain`
 - `audio/mpeg`
 
 ---
 
-# Intent Filters. Синтаксис фильтра Data
+# Intent Filters. Синтаксис фильтра `data`
 
 ```xml
 <intent-filter ... >
@@ -509,7 +544,7 @@ URI данных, над которыми производится действ�
 | Intent | Filter |
 | - | - |
 | Нет URI, нет MIME | Нет URI, нет MIME |
-| Есть URI, нет MIME. MIME не вычисляем из URI | URI совпадает, нет MIME |
+| Есть URI, нет MIME | URI совпадает, нет MIME |
 | Нет URI, есть MIME | Нет URI, MIME совпадает |
 | Есть URI, есть MIME | MIME совпадает и (одно из двух):<br>1) URI совпадает, или <br> 2) нет URI и в запросе схема `content:` или `file:` |
 
@@ -526,35 +561,291 @@ URI
 
 ---
 
-# Примеры комбинаций Action/Data 
-
-**ACTION_VIEW** `content://contacts/people/1` -- Display information about the person whose identifier is "1".
-
-**ACTION_DIAL** `content://contacts/people/1` -- Display the phone dialer with the person filled in.
-
-**ACTION_VIEW** `tel:123` -- Display the phone dialer with the given number filled in. Note how the VIEW action does what is considered the most reasonable thing for a particular URI.
-
-**ACTION_DIAL** `tel:123` -- Display the phone dialer with the given number filled in.
-
----
-
-
-# Примеры комбинаций Action/Data 
-
-**ACTION_EDIT** `content://contacts/people/1` -- Edit information about the person whose identifier is "1".
-
-**ACTION_VIEW** `content://contacts/people/` -- Display a list of people, which the user can browse through. This example is a typical top-level entry into the Contacts application, showing you the list of people. Selecting a particular person to view would result in a new intent { ACTION_VIEW content://contacts/N } being used to start an activity to display that person.
-
----
-
 # Using Intent Matching
 
 **`PackageManager`** has a set of `query...()` to list all the components that can accept a particular intent
 - `queryIntentActivities()`
 - `queryIntentServices()`
-- …
+- ...
 
 **`PackageManager`** has a set of `resolve...()` to find the best component to respond to an intent
 - `resolveActivity()`
 - `resolveServices()`
-- …
+- ...
+
+---
+
+# Важное замечание
+
+Если нет компонента, который может обработать `Intent` -- возникнет ошибка на вызывающей стороне.
+
+```kotlin
+fun selectContact() {
+    val intent = Intent(Intent.ACTION_PICK).apply {
+        type = ContactsContract.Contacts.CONTENT_TYPE
+    }
+    if (intent.resolveActivity(packageManager) != null) {
+        startActivityForResult(intent, REQUEST_SELECT_CONTACT)
+    }
+}
+```
+
+---
+
+# Вопрос
+Кто угодно может запустить любой компонент из моего приложения?
+
+---
+
+# DEMO
+
+```kotlin
+val i = Intent()
+i.setComponent(
+    ComponentName.createRelative(
+        "com.google.android.youtube",
+        "com.google.android.apps.youtube.app.MainLiveCreationActivity"
+    )
+)
+```
+
+---
+
+# Android Permissions
+
+https://developer.android.com/guide/topics/permissions/overview
+
+---
+
+# Ограничение Доступа к Компоненту
+
+AndroidManifest.xml
+- `android:exported="false"`
+  - Код в том же процессе* может запускать компонент
+- `android:permission="string"`
+  - `<uses-permission>`, `ActivityCompat.requestPermissions` (aka Dynamic Permissions API 23+)
+
+(*) `Application>android:process`+`manifest>android:sharedUserId`
+`android:sharedUserId` is deprecated in API level 29
+
+---
+
+# Protection Levels
+**Normal permissions** — Автоматически разрешены при установке
+- FOREGROUND_SERVICE
+- SET_WALLPAPER
+
+**Signature permissions** — Разрешены, если приложения подписаны одинаковыми сертификатами
+- CLEAR_APP_CACHE
+
+---
+
+# Protection Levels
+**Dangerous permissions** — Могут раскрывать информацию о пользователе
+- Должны быть разрешены пользователем явно
+  - При установке (до Android 6.0, API 23)
+  - Во время исполнения (Android 6.0, API 23 и больше)
+
+**Special permissions** — :-)
+- SYSTEM_ALERT_WINDOW
+- WRITE_SETTINGS
+
+---
+
+# Install Time Permissions Request 
+
+![h:500 center](res/install-time-perms.png)
+
+---
+
+# Runtime Permissions Request
+
+![h:500 center](res/run-time-perms.png)
+
+У пользователя спрашивается разрешение на **группу**
+
+---
+
+# Permission Group
+
+| Group | Permissions |
+|-|-|
+| CAMERA | CAMERA
+| CONTACTS | READ_CONTACTS, WRITE_CONTACTS, GET_ACCOUNTS
+| LOCATION | ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION
+| MICROPHONE | RECORD_AUDIO
+| SMS | SEND_SMS, RECEIVE_SMS, READ_SMS, RECEIVE_WAP_PUSH, RECEIVE_MMS
+| STORAGE | READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE
+| ... | ... 
+
+Don't base your app's logic on the structure of these permission groups.
+
+<!-- _footer: https://developer.android.com/guide/topics/permissions/overview#perm-groups -->
+
+---
+
+# Permission Group: Protected APIs
+
+![h:500 center](res/user-data-overview-permissions-flow01.jpg)
+
+---
+
+# Ограничения на Dangerous Permissions (API 23+)
+Все Dangerous Permissions должны быть запрошены явно во время исполнения приложения (объявления `<uses-permissions>` в AndroidManifest не достаточно)
+
+<!-- _footer: https://developer.android.com/training/permissions/requesting -->
+
+---
+
+# Запрос Dangerous Permissions (API 23+) 
+
+```java
+// Here, thisActivity is the current activity
+if (ContextCompat.checkSelfPermission(thisActivity,
+        Manifest.permission.READ_CONTACTS)
+        != PackageManager.PERMISSION_GRANTED) {
+
+    // Permission is not granted
+    // Should we show an explanation?
+    if (ActivityCompat.shouldShowRequestPermissionRationale(thisActivity,
+            Manifest.permission.READ_CONTACTS)) {
+        // Show an explanation to the user *asynchronously* -- don't block
+        // this thread waiting for the user's response! After the user
+        // sees the explanation, try again to request the permission.
+    } else {
+        // No explanation needed; request the permission
+        ActivityCompat.requestPermissions(thisActivity,
+                new String[]{Manifest.permission.READ_CONTACTS},
+                MY_PERMISSIONS_REQUEST_READ_CONTACTS);
+
+        // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
+        // app-defined int constant. The callback method gets the
+        // result of the request.
+    }
+} else {
+    // Permission has already been granted
+} 
+```
+
+---
+
+# Обработка Разрешения Dangerous Permissions (API 23+)
+
+```java
+@Override
+public void onRequestPermissionsResult(int requestCode,
+        String permissions[], int[] grantResults) {
+    switch (requestCode) {
+        case MY_PERMISSIONS_REQUEST_READ_CONTACTS: {
+            // If request is cancelled, the result arrays are empty.
+            if (grantResults.length > 0
+                && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // permission was granted, yay! Do the
+                // contacts-related task you need to do.
+            } else {
+                // permission denied, boo! Disable the
+                // functionality that depends on this permission.
+            }
+            return;
+        }
+
+        // other 'case' lines to check for other
+        // permissions this app might request.
+    }
+} 
+```
+
+---
+
+# То же самое, более новый API (обработка)
+
+```kotlin
+// Register the permissions callback, which handles the user's response to the
+// system permissions dialog. Save the return value, an instance of
+// ActivityResultLauncher. You can use either a val, as shown in this snippet,
+// or a lateinit var in your onAttach() or onCreate() method.
+val requestPermissionLauncher =
+    registerForActivityResult(RequestPermission()
+    ) { isGranted: Boolean ->
+        if (isGranted) {
+            // Permission is granted. Continue the action or workflow in your
+            // app.
+        } else {
+            // Explain to the user that the feature is unavailable because the
+            // features requires a permission that the user has denied. At the
+            // same time, respect the user's decision. Don't link to system
+            // settings in an effort to convince the user to change their
+            // decision.
+        }
+    }
+
+```
+
+---
+
+# То же самое, более новый API (запрос)
+
+```kotlin
+when {
+    ContextCompat.checkSelfPermission(
+            CONTEXT,
+            Manifest.permission.REQUESTED_PERMISSION
+            ) == PackageManager.PERMISSION_GRANTED -> {
+        // You can use the API that requires the permission.
+    }
+    shouldShowRequestPermissionRationale(...) -> {
+        // In an educational UI, explain to the user why your app requires this
+        // permission for a specific feature to behave as expected. In this UI,
+        // include a "cancel" or "no thanks" button that allows the user to
+        // continue using your app without granting the permission.
+        showInContextUI(...)
+    }
+    else -> {
+        // You can directly ask for the permission.
+        // The registered ActivityResultCallback gets the result of this request.
+        requestPermissionLauncher.launch(
+                Manifest.permission.REQUESTED_PERMISSION)
+    }
+}
+```
+
+---
+
+# Объявление Новых Permission и Permission Group
+
+https://developer.android.com/guide/topics/permissions/defining 
+
+---
+
+# Permissions: Basic Principles
+
+- **Ask for permissions in context**, when the user starts to interact with the feature that requires it.
+- **Don't block the user.** Always provide the option to cancel an educational UI flow related to permissions.
+- If the user denies or revokes a permission that a feature needs, **gracefully degrade** your app so that the user can continue using your app, possibly by disabling the feature that requires the permission.
+- **Don't assume any system behavior.**
+
+<!-- _footer: https://developer.android.com/training/permissions/requesting#principles -->
+
+---
+
+# Permissions: Best Practices (1)
+
+#1: Only use the permissions necessary for your app to work. 
+ - Depending on how you are using the permissions, there may be another way to do what you need (system intents, identifiers, backgrounding for phone calls) without relying on access to sensitive information.
+
+#2: Pay attention to permissions required by libraries. 
+ - When you include a library, you also inherit its permission requirements. You should be aware of what you're including, the permissions they require, and what those permissions are used for.
+
+<!-- _footer: https://developer.android.com/training/permissions/usage-notes#tenets_of_working_with_android_permissions -->
+
+---
+
+# Permissions: Best Practices (2)
+
+#3: Be transparent. 
+ - When you make a permissions request, be clear about what you’re accessing, and why, so users can make informed decisions.
+
+#4: Make system accesses explicit. 
+ - Providing continuous indications when you access sensitive capabilities (for example, the camera or microphone) makes it clear to users when you’re collecting data and avoids the perception that you're collecting data surreptitiously. 
+
+<!-- _footer: https://developer.android.com/training/permissions/usage-notes#tenets_of_working_with_android_permissions -->
