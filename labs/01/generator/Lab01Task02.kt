@@ -143,9 +143,9 @@ object Lab01Task02 {
         val model = Model()
         val pngDumper = PngDumper(model)
 
-        for (i in 1..20) {
+        for (i in 1..30) {
             model.generate()
-            pngDumper.dump("lab01_constraint_v%02d.png".format(i))
+            pngDumper.dump("constraint/lab01_constraint_v%02d.png".format(i))
         }
     }
 }
