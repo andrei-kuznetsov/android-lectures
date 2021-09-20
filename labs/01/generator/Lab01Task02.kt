@@ -7,6 +7,11 @@ import java.io.File
 import java.awt.Color
 import java.awt.Graphics2D
 import java.awt.image.BufferedImage
+import java.io.PrintStream
+import java.io.PrintWriter
+import java.nio.file.Files
+import java.nio.file.Path
+import java.nio.file.Paths
 
 
 object Lab01Task02 {
@@ -91,6 +96,12 @@ object Lab01Task02 {
                 }
             }
         }
+
+        fun dump(out: PrintWriter) {
+            for (box in boxes) {
+                out.println("${box.id};${box.cols.first};${box.cols.last};${box.rows.first};${box.rows.last}")
+            }
+        }
     }
 
     class PngDumper(private val model: Model) {
@@ -143,9 +154,18 @@ object Lab01Task02 {
         val model = Model()
         val pngDumper = PngDumper(model)
 
+        val metaPath = Paths.get("constraint/meta.txt")
+        if (Files.exists(metaPath)) Files.delete(metaPath)
+
+        val metaOut = PrintWriter(metaPath.toFile())
         for (i in 1..30) {
             model.generate()
             pngDumper.dump("constraint/lab01_constraint_v%02d.png".format(i))
+
+            metaOut.println("id:$i")
+            model.dump(metaOut)
         }
+
+        metaOut.close();
     }
 }
