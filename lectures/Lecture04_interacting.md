@@ -307,36 +307,7 @@ class MainActivity : Activity() {
 
 ---
 
-# Альтернатива 1: kotlin-android-extensions
-```xml
-<Button xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/button_send"
-    android:text="@string/button_send" /> 
-```
-
-```kotlin
-import kotlinx.android.synthetic.com.example.*
-
-button_send.setOnClickListener{view -> 
-    // Do something in response to button click
-}
-```
-
-```groovy
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-```
-
----
-
-# Альтернатива 2: ButterKnife
-
-https://github.com/JakeWharton/butterknife
-
----
-
-# Альтернатива 3: ViewBinding
+# Альтернатива: ViewBinding
 <!-- _footer: https://developer.android.com/topic/libraries/view-binding -->
 
 <!-- решает обе проблемы: если виджета нет в одной из конфигураций - тип будет nullable -->
