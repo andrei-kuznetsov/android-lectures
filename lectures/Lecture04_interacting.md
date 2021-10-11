@@ -792,7 +792,7 @@ class MyActivity : AppCompatActivity() {
         // Create a ViewModel the first time the system calls an activity's onCreate() method.
         // Re-created activities receive the same MyViewModel instance created by the first activity.
 
-        val model = ViewModelProviders.of(this)[MyViewModel::class.java]
+        val model = ViewModelProvider(this)[MyViewModel::class.java]
         …
     }
 } 
