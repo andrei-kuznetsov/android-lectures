@@ -19,7 +19,10 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class NavigationTest {
     @Test
-    fun testMe() {
-
+    fun testAbout() {
+        launchActivity<MainActivity>()
+        openAbout()
+        Espresso.onView(ViewMatchers.withId(R.id.activity_about))
+            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
 }
