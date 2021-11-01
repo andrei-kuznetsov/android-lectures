@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">My Application</string>
+
+    <string name="title_about">About</string>
+    <string name="text_about">About text</string>
+
+    <string name="title_to_second">To Second</string>
+    <string name="title_to_third">To Third</string>
+    <string name="title_to_first">To First</string>
+</resources>
