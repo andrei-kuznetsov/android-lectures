@@ -218,7 +218,7 @@ https://developer.android.com/training/testing/fundamentals
 
 <!-- _footer: https://developer.android.com/training/testing/fundamentals -->
 
-# Testing workflow (TDD, recommended by Google)
+# Testing Workflow (TDD, recommended by Google)
 
 ![center](res/testing-workflow.png)
 
@@ -284,27 +284,34 @@ ul {flex: 1;}
 
 ---
 
-# Robolectric: начало работы
+# Локальные тесты: зависимости
 
 ```groovy
 android {
-  testOptions {
-    unitTests {
-      includeAndroidResources = true
+    // ...
+    testOptions {
+        unitTests.includeAndroidResources = true
     }
-  }
 }
 
 dependencies {
-  testImplementation 'org.robolectric:robolectric:4.4'
+    testImplementation("junit:junit:4.13.2")
+
+    // Robolectric
+    testImplementation "androidx.test.ext:junit-ktx:1.1.3"
+    testImplementation "androidx.test:core-ktx:1.4.0"
+    testImplementation 'org.robolectric:robolectric:4.6'
+    
+    debugImplementation("androidx.fragment:fragment-testing:1.3.6")
 }
+
 ```
 
 ---
 
 # Локальные тесты: резюме
 
-- Assert/Hamcrest для утверждений
+- Assert/Truth/Hamcrest для утверждений
 - Mockito для моков собственных классов
 - Robolectric для моков Андроид классов
 
