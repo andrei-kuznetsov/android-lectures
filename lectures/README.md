@@ -5,20 +5,20 @@
 3. (ЛР2) Альтернативные ресурсы, алгоритм best match.
 3. (ЛР2) Activity. Жизненный цикл.
 4. Activity. Сохранение состояния (ViewModel, Saved instance state, Persistent storage).
-4. kotlinx.android.synthetic. ViewBinding library. DataBinding library.
+4. ViewBinding library. DataBinding library.
 4. (ЛР3) Lifecycle, LifecycleOwner, Observer, LifecycleObserver, LiveData.
 5. (ЛР3) Task & BackStack (task affinity, launch mode).
 5. (ЛР3) Fragment. Философия, жизненный цикл, fragment manager, navigation graph.
 10. Intent, intent-filter, intent resolution (implicit & explicit intents).
-7. (ЛР5) Тестирование Android приложений: JUnit, Robolectric, Espresso, UI Automator.
-10. (ЛР7 з.4) Android permissions.
-11. (ЛР6) Многопоточная обработка (Java threads, AsyncTask, Kotlin coroutines).
+7. (ЛР4) Тестирование Android приложений: JUnit, Robolectric, Espresso, UI Automator.
+10. Android permissions.
+11. (ЛР5) Многопоточная обработка (Java threads, ExecutorService, Kotlin coroutines).
 13. Значимость процессов. Doze mode, App Standby.
 14. Background Tasks: Immediate, Exact, Deferred
-14. (ЛР7) Broadcast receivers.
-13. (ЛР7) Services: started, bound. Интерфейс IBinder.
-15. (ЛР7 з.4) Content providers, Temporary URI permissions
-15. (ЛР7 з.4) Storage access framework
+14. Broadcast receivers.
+13. Services: started, bound. Интерфейс IBinder.
+15. Content providers, Temporary URI permissions
+15. Storage access framework
 15. ~~Не в доступе: ROOM: Database, DAO, Entity.~~
 9. ~~Не в доступе: публикация приложений в google play~~
 
